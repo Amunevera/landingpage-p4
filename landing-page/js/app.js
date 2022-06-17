@@ -44,11 +44,11 @@ for (i = 1; i <= sections.length; i++) {
 }
 
 //an hashmap where the key will be the section and the value is the corresponding li element // 
-let hashmap = new Map();
-sections.forEach(function (section, index) {
-    hashmap.set(section, selectedli[index])
-})
-selectedli[0].classList.add('active')
+//let hashmap = new Map();
+// sections.forEach(function (section, index) {
+//     hashmap.set(section, selectedli[index])
+// })
+// selectedli[0].classList.add('active')
 //an event that fires when the window of the browser is been scrolled
 // build the nav
 // Add class 'active' to section when near top of viewport
@@ -57,38 +57,24 @@ window.addEventListener("scroll", (event) => {
     event.preventDefault();
     sections.forEach(section => {
         let sectionMeasurements = section.getBoundingClientRect();
+        console.log (sectionMeasurements)
         //setting the active class when the top of the section border is 
         // greater than or equal to 0 and the section bottom is greater 
         // than zero .
         //the else statement will remove the preset class if the condition is 
         // false 
         if (
-            sectionMeasurements.top >= 0 && sectionMeasurements.bottom > 0 &&
-            sectionMeasurements.bottom <= (window.innerHeight ||
-                document.documentElement.clientHeight) &&
-            sectionMeasurements.right <= (window.innerWidth ||
-                document.documentElement.clientWidth)) {
-            section.classList.remove('section.your-active-class');
-            hashmap.get(section).classList.add('active');
-            // section.style.cssText = "background-color :red";
+            sectionMeasurements.top <= 0 && sectionMeasurements.bottom >= 0 
+            ) {
+           section.classList.add('visiblesection');
+           section.querySelector
         }
         else {
-            section.classList.add('section.your-active-class');
-            hashmap.get(section).classList.remove('active');
-            // section.style.cssText = "background-color :red";
+            section.classList.remove('visiblesection');
+            
         }
     })
 });
-
-// const activation = () => {
-//     section.forEach((section) => {
-//         const elementive = sectionMeasurements(section);
-//         inviewport = () => elementive < 100 && elementive >= -100;
-//         hashmap
-//     })
-// }
-
-
 
 allAnchor.forEach(anchor => {
     addEventListener('click', (e) => {
