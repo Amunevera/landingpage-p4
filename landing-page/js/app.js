@@ -68,15 +68,28 @@ window.addEventListener("scroll", (event) => {
                 document.documentElement.clientHeight) &&
             sectionMeasurements.right <= (window.innerWidth ||
                 document.documentElement.clientWidth)) {
-            section.classList.add('your-active-class');
+            section.classList.remove('section.your-active-class');
             hashmap.get(section).classList.add('active');
+            // section.style.cssText = "background-color :red";
         }
         else {
-            section.classList.remove('your-active-class');
+            section.classList.add('section.your-active-class');
             hashmap.get(section).classList.remove('active');
+            // section.style.cssText = "background-color :red";
         }
     })
-})
+});
+
+// const activation = () => {
+//     section.forEach((section) => {
+//         const elementive = sectionMeasurements(section);
+//         inviewport = () => elementive < 100 && elementive >= -100;
+//         hashmap
+//     })
+// }
+
+
+
 allAnchor.forEach(anchor => {
     addEventListener('click', (e) => {
         e.preventDefault();
