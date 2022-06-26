@@ -24,8 +24,6 @@ body {
     position: inherit;
 }
 
-
-
 /* Typeography General*/
 h1 {
     font-family: 'Fira Sans', sans-serif;
@@ -39,19 +37,6 @@ h1 {
         margin: 2em 4rem 1em;
     }
 }
-/*
-#navbar__list{
-        display: flex;
-    /*Navbar responsiveness: scroll from left to right*
-        overflow: scroll;
-}
-@media (max-width: 650px) {
-    #navbar__list li{
-        text-align: center;
-        min-width: auto;
-    }
-}
-*/
 
 h2 {
     border-bottom: 1px solid #cc1;
@@ -90,8 +75,6 @@ section {
     margin: 0;
     text-align: center;
     text-decoration: none;
-
-
 }
 
 .navbar__menu li {
@@ -112,10 +95,12 @@ section {
     transition: ease 0.3s all;
 }
 
-/* li.active{
-    background-color: rgb(243, 182, 224);
-    text-decoration: solid;
+.navbar__menu .active-menu {
+background: rgb(245, 6, 185);
+color: rgb(13, 134, 190);
+transition: ease 0.3s all;
 }
+
 
 /* Header Styles */
 .page__header {
