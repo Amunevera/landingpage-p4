@@ -43,12 +43,6 @@ for (i = 1; i <= sections.length; i++) {
     allAnchor[i - 1].classList.add("menu__link");
 }
 
-//an hashmap where the key will be the section and the value is the corresponding li element // 
-//let hashmap = new Map();
-// sections.forEach(function (section, index) {
-//     hashmap.set(section, selectedli[index])
-// })
-// selectedli[0].classList.add('active')
 //an event that fires when the window of the browser is been scrolled
 // build the nav
 // Add class 'active' to section when near top of viewport
@@ -64,14 +58,18 @@ window.addEventListener("scroll", (event) => {
         //the else statement will remove the preset class if the condition is 
         // false 
         if (
-            sectionMeasurements.top <= 0 && sectionMeasurements.bottom >= 0 
+            sectionMeasurements.top -100 <= 0 && sectionMeasurements.bottom -100 >= 0 
             ) {
            section.classList.add('visiblesection');
-           section.querySelector
+           let targetMenu = document.querySelector(`a[href="#${section.getAttribute('id')}"]`)
+          
+           targetMenu.classList.add('active-menu');
         }
         else {
             section.classList.remove('visiblesection');
-            
+            let targetMenu = document.querySelector(`a[href="#${section.getAttribute('id')}"]`)
+          
+           targetMenu.classList.remove('active-menu');
         }
     })
 });
@@ -81,7 +79,6 @@ allAnchor.forEach(anchor => {
         e.preventDefault();
         anchor = e.target.getAttribute("href");
         document.querySelector(anchor).scrollIntoView({
-            response: "true",
             behavior: "smooth",
             block: 'start'
         })
